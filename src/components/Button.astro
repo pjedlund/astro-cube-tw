@@ -1,0 +1,14 @@
+---
+import type { Props as PrimitiveButtonProps } from "@/primitives/elements/PrimitiveButton.astro";
+import PrimitiveButton from "@/primitives/elements/PrimitiveButton.astro";
+
+type Props = PrimitiveButtonProps & {
+		className?: string;
+	};
+
+const { className, children, href, ...rest } = Astro.props;
+---
+
+<PrimitiveButton href={href} class:list={['btn', className]} type={href ? undefined : "button"} {...rest}>
+	<slot />
+</PrimitiveButton>
